@@ -2,6 +2,7 @@ import NewsHeading from '@/components/news/NewsHeading';
 import NewsSection from '@/components/news/NewsSection';
 import TodayPopularNews from '@/components/news/TodayPopularNews';
 import IntlClientProvider from '@/components/shared/IntlClientProvider';
+import ChattingMain from '@/components/chatting/chattingMain';
 import SkeletonTodayPopularNews from '@/components/skeleton/news/SkeletonTodayPopularNews';
 import ChartSection from '@/components/stock/detail/ChartSection';
 import { UUID } from 'crypto';
@@ -28,6 +29,7 @@ export default async function StockDetail({ params }: DetailProps) {
           <TodayPopularNews />
         </Suspense>
       </NewsSection>
+      <ChattingMain />
     </div>
   );
 }
