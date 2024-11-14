@@ -1,8 +1,10 @@
-export async function getServerSideProps() {
+import { NextResponse } from 'next/server';
+
+export async function GET() {
   const authURL = `${process.env.LLAMA_API_URL}auth/token`;
   const authBody = {
-    username: `${process.env.LLAMA_USER_NAME}`,
-    password: `${process.env.LLAMA_PASSWORD}`,
+    username: process.env.LLAMA_USER_NAME!,
+    password: process.env.LLAMA_PASSWORD!,
   };
 
   const param = {
@@ -16,9 +18,12 @@ export async function getServerSideProps() {
   try {
     const response = await fetch(authURL, param);
     const authData = await response.json();
-    return { props: { authData } };
+    return NextResponse.json(authData);
   } catch (error) {
     console.error('Fetch failed', error);
-    return { props: { error: 'API 호출 실패' } };
+    return NextResponse.json(
+      { error: 'API 호출 실패' },
+      { status: 500 },
+    );
   }
 }
