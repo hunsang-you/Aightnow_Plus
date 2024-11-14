@@ -127,14 +127,14 @@ export default function Login() {
                   <div className="absolute inset-0 flex items-center">
                     <hr className="w-full border-t border-grayscale-400" />
                   </div>
-                  <div className="relative bg-grayscale-0 px-2 text-grayscale-600">
+                  {/* <div className="relative bg-grayscale-0 px-2 text-grayscale-600">
                     {t('or')}
-                  </div>
+                  </div> */}
                 </div>
               </div>
 
               {/* 소셜로그인 */}
-              <SocialLoginButtons setIsLoading={setIsLoading} />
+              {/* <SocialLoginButtons setIsLoading={setIsLoading} /> */}
             </LoadingSpinnerWrapper>
           </div>
         </Wrapper>
